@@ -15,7 +15,6 @@ $().ready(function(){
 
     count.then(function(response) {
       let body = JSON.parse(response);
-      console.log(body.proximity);
       $('.hide').show();
       $('#bikeCount').text(body.proximity);
     },function(error) {
@@ -25,7 +24,10 @@ $().ready(function(){
     promise.then(function(response) {
       let body = JSON.parse(response);
       body.bikes.forEach(function(bike) {
-        $('#listBikes').append(`<li>${bike.title}</li>`);
+        let ms = new Date(bike.date_stolen*1000);
+
+        let stolen = `${ms.getMonth()}/${ms.getDay()}/${ms.getFullYear()}`;
+        $('#listBikes').append(`<tr><td>${stolen}</td><td>${bike.title}</td><td>${bike.serial}</td></tr>`);
         // console.log(`${bike.title}`);
         },function(error) {
           $('#listBikesError').append(`${error}`);

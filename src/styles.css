@@ -4,3 +4,7 @@ body {
 .hide {
   display: none;
 }
+th, td {
+  padding: 1%;
+  width: 3%;
+}
