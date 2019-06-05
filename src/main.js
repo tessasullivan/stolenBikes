@@ -27,7 +27,7 @@ $().ready(function(){
         let ms = new Date(bike.date_stolen*1000);
 
         let stolen = `${ms.getMonth()}/${ms.getDay()}/${ms.getFullYear()}`;
-        $('#listBikes').append(`<tr><td>${stolen}</td><td>${bike.title}</td><td>${bike.serial}</td></tr>`);
+        $('#listBikes').append(`<tr><td>${stolen}</td><td>${bike.stolen_location}</td><td>${bike.title}</td><td>${bike.serial}</td><td>${bike.frame_colors}</td></tr>`);
         // console.log(`${bike.title}`);
         },function(error) {
           $('#listBikesError').append(`${error}`);
