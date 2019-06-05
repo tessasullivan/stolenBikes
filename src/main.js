@@ -11,16 +11,33 @@ $().ready(function(){
 
     let bike = new Bike();
     let promise = bike.getStolenBikesByCity(city);
+    let count = bike.getStolenBikeCountByLocation(city);
 
-    promise.then((response) => {
+    count.then(function(response) {
       let body = JSON.parse(response);
-      // console.log(`outside for ${body.bikes[0]}`);
+      console.log(body.proximity);
+      $('.hide').show();
+      $('#bikeCount').text(body.proximity);
+    },function(error) {
+      console.error(error);
+    });
+
+    promise.then(function(response) {
+      let body = JSON.parse(response);
       body.bikes.forEach(function(bike) {
         $('#listBikes').append(`<li>${bike.title}</li>`);
-        console.log(`${bike.title}`);
-        }).catch((error) => {
-          $('#listBikes').append(`<p>${error}</p>`);
-      });
+        // console.log(`${bike.title}`);
+        },function(error) {
+          $('#listBikesError').append(`${error}`);
+        });    
+      // promise.then((response) => {
+      //   let body = JSON.parse(response);
+      //   body.bikes.forEach(function(bike) {
+      //     $('#listBikes').append(`<li>${bike.title}</li>`);
+      //     // console.log(`${bike.title}`);
+      //     }).catch((error) => {
+      //       $('#listBikesError').append(`${error}`);
+      //   });
     });
   });
 });

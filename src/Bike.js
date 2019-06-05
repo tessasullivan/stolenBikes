@@ -17,4 +17,21 @@ export class Bike {
       }
     });
   }
+  getStolenBikeCountByLocation(location) {
+    return new Promise((resolve, reject) => {
+      let request = new XMLHttpRequest();
+      let url = `https://cors-anywhere.herokuapp.com/http://bikeindex.org/api/v3/search/count?stolenness=proximity&location=${location}`;
+
+      request.open("GET", url, true);
+      request.send();
+      
+      request.onload = function() {
+        if (this.status === 200){
+          resolve(request.response);
+        } else {
+          reject(Error(request.statusText));
+        }        
+      }
+    });
+  }
 }
