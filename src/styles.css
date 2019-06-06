@@ -1,11 +1,24 @@
-body {
-  background-color: #7FDBFF;
+body, html {
+  background-image: linear-gradient(to right, rgba(65, 65, 247, 0.644), rgba(255, 0, 0, 0.541), rgba(247, 247, 33, 0.726)); 
+  height: 100%;
 }
-.hide {
+.hide, #previous, #next {
   display: none;
 }
 th, td {
   padding-left: 1%;
   padding-right: 1%;
   width: 3%;
+  border-style: double;
+}
+h1 {
+  text-align: center;
+  border-style: solid;
+  border-radius: 10px 20px 10px 20px;
+  box-shadow: 5px 10px black;
+  background-color: rgba(240, 248, 255, 0.507);
+}
+.input{
+  text-align: center;
+  caret-color: tomato;
 }

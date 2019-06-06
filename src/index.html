@@ -8,23 +8,27 @@
 </head>
 <body>
   <div class="container">
-    <h1>Bikes Stolen By Bad People</h1>
+    <h1>Bikes Stolen By Bad People</h1><br>
+    <div class="input">
     <label for="location">Enter a location:</label>
     <input id="location" type="text">
     <button id="cityLocation">See Results</button>
+    </div>
+
     <div>
-      <p class='hide'>There were <span id='bikeCount'></span> reported stolen.</p>
+      <p class='hide'><strong>There were <span id='bikeCount'></span> reported stolen.</strong></p>
       <p id='listBikesError'></p>
       <table class='hide' id="listBikes">
-        <tr>
+        <tr id='tableHeader'>
           <th>Date Stolen</th>
           <th>Stolen Location</th>
           <th>Bike Model</th>
           <th>Serial Number</th>
           <th>Frame Color</th>
         </tr>
+        <div id="listContent"></div>
       </table>
-    </div>
+
   </div>
 </body>
 </html>
